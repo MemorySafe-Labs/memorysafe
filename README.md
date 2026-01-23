@@ -170,3 +170,10 @@ It can be integrated as:
 ## One-Sentence Essence
 
 **MemorySafe treats AI memory as a governed resource, separating vulnerability from value to enable intentional, interpretable, and generalizable memory decisions under real-world constraints.**
+
+## License
+
+MemorySafe is released under the Apache 2.0 License.
+
+This allows free use, modification, and distribution, including for commercial purposes.
+For enterprise support, integrations, or commercial partnerships, contact MemorySafe Labs.
