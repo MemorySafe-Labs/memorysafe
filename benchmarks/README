@@ -1,1 +1,67 @@
+# MemorySafe Benchmarks
+
+This folder contains validation scripts and result summaries for evaluating the MemorySafe policy across heterogeneous continual learning benchmarks.
+
+The goal of these experiments is to test **generalization of the memory governance policy** under increasing task complexity and data modality shifts.
+
+---
+
+## Benchmarks Included
+
+The same unchanged MemorySafe policy was evaluated on:
+
+- MNIST  
+- Fashion-MNIST  
+- CIFAR-10  
+- CIFAR-100  
+- Omniglot  
+- Permuted MNIST  
+- PneumoniaMNIST (MedMNIST)
+
+No dataset-specific tuning was applied.
+
+---
+
+## Metrics
+
+We report:
+
+- **Task-0 Protection**  
+  Accuracy on the first task after learning all subsequent tasks.
+
+- **Rare-Class Recall**  
+  Recall on low-frequency or safety-critical classes.
+
+- **Overall Accuracy**  
+  Accuracy across all seen classes.
+
+---
+
+## Summary Results
+
+| Dataset        | Task-0 Protection | Rare Recall |
+|----------------|------------------:|------------:|
+| MNIST          | 100%              | N/A         |
+| Fashion-MNIST  | 100%              | N/A         |
+| CIFAR-10       | 100%              | N/A         |
+| CIFAR-100      | 100%              | N/A         |
+| Omniglot       | 100%              | N/A         |
+| Permuted MNIST | 100%              | N/A         |
+| PneumoniaMNIST | –                 | 0.917       |
+
+These results indicate zero-shot generalization of a memory allocation policy across tasks, modalities, and difficulty regimes.
+
+---
+
+## Reproducibility
+
+Each benchmark includes:
+
+- fixed random seeds  
+- identical policy parameters  
+- identical memory capacity  
+
+Scripts are designed to run on CPU or GPU.
+
+This folder serves as the experimental evidence for claims reported in the MemorySafe documentation and website.
 
