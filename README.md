@@ -1,16 +1,10 @@
-© 2025 Carla P. Centeno · EverMind Research  
-First public disclosure: 9 December 2025  
+# MemorySafe Labs
+Memory Governance for Continual Learning Systems
 
-**NON-COMMERCIAL LICENSE** — Commercial use requires written permission → carla@evermind.ai
+MemorySafe is a memory governance framework for continual learning systems, designed to prevent safety-critical information from being forgotten under memory and compute constraints.
 
-# MemorySafe — Never Retrain Again
+Rather than modifying how models learn, MemorySafe governs what they retain.
 
-Bio-inspired continual learning engine  
-→ 99.4% catastrophic forgetting reduction  
-→ Hard 900-unit memory cap (no replay buffers)  
-→ Works even on brutal 20-task Omniglot-like regimes  
-→ Zero dependencies — pure numpy
+It operates as a policy-level decision layer for memory, acting as an intelligent governor that disciplines data retention independently of the learning algorithm.
 
-### One-command demo (runs instantly anywhere)
-```bash
-curl -sSL https://raw.githubusercontent.com/CarlaPCenteno/memorysafe/main/never_retrain.py | python3
+Use cases include medical AI, edge systems, fraud detection, robotics, and privacy-aware AI.
