@@ -1,10 +1,3 @@
-## 🚀 Public Demo (Colab)
-
-Try MemorySafe’s memory governance concept in a live Colab notebook:
-
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)]
-(https://colab.research.google.com/github/memorysafe-labs/memorysafe/blob/main/benchmarks/taste_memorysafe_vs_fifo_colab.ipynb)
-
 # MemorySafe Labs  
 **Memory Governance for Continual Learning Systems**
 
