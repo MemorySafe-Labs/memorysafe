@@ -4,6 +4,14 @@ This folder contains validation scripts and result summaries for evaluating the 
 
 The goal of these experiments is to test **generalization of the memory governance policy** under increasing task complexity and data modality shifts.
 
+
+## 🚀 Public Demo (Colab)
+
+Run the MemorySafe public demo comparing MemorySafe-Taste vs FIFO:
+
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/MemorySafe-Labs/memorysafe/blob/main/benchmarks/Taste_Demo_MemorySafe_Taste_vs_FIFO_%20(1).ipynb)
+
+
 ---
 
 ## Benchmarks Included
