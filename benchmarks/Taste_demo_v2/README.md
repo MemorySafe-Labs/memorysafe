@@ -1,3 +1,16 @@
+# MemorySafe
+
+MemorySafe is a vulnerability-aware memory governance framework for continual learning.
+
+## Install
+pip install memorysafe
+
+## Quick example
+```python
+from memorysafe import MemorySafeBuffer
+
+
+
 # MemorySafe – Taste Demo v2
 
 This demo illustrates a memory governance system:
