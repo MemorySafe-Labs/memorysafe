@@ -3,13 +3,17 @@
 
 ## 🚀 Public Demo (Colab)
 
-Run the MemorySafe public demo comparing MemorySafe-Taste vs FIFO:
+## 🚀 Try MemorySafe in 30 seconds
 
-🚀 Public Demo (Colab)
+Experience predictive memory governance in action.
 
-https://colab.research.google.com/github/MemorySafe-Labs/memorysafe/blob/main/benchmarks/Taste_demo_v2/demo.ipynb
+The demo below compares MemorySafe against FIFO, Reservoir, and Random Replay
+under memory pressure.
 
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)]
+(https://colab.research.google.com/github/MemorySafe-Labs/memorysafe/blob/main/benchmarks/Taste_demo_v2/demo.ipynb)
 
+No setup required. Just click **Run all**.
 
 MemorySafe is a memory governance framework for continual learning systems, designed to prevent safety-critical information from being forgotten under memory and compute constraints.
 
