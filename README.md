@@ -1,20 +1,5 @@
-# MemorySafe Labs  
+# MemorySafe Labs
 **Memory Governance for Continual Learning Systems**
-
-## 🚀 Public Demo (Colab)
-
-## 🚀 Try MemorySafe in 30 seconds
-
-Experience predictive memory governance in action.
-
-The demo below compares MemorySafe against FIFO, Reservoir, and Random Replay
-under memory pressure.
-
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)]
-(https://colab.research.google.com/github/MemorySafe-Labs/memorysafe/blob/main/benchmarks/Taste_demo_v2/demo.ipynb)
-
-No setup required. Just click **Run all**.
-
 
 MemorySafe is a memory governance framework for continual learning systems, designed to prevent safety-critical information from being forgotten under memory and compute constraints.
 
@@ -26,20 +11,33 @@ Use cases include medical AI, edge systems, fraud detection, robotics, and priva
 
 ---
 
+## 🚀 Try MemorySafe in 30 seconds
+
+Experience predictive memory governance in action.
+
+The demo compares MemorySafe against FIFO, Reservoir, and Random Replay under memory pressure.
+
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)]
+(https://colab.research.google.com/github/MemorySafe-Labs/memorysafe/blob/main/benchmarks/Taste_demo_v2/demo.ipynb)
+
+No setup required. Just click **Run all**.
+
+---
+
 ## Problem
 
 Modern continual learning systems implicitly conflate **exposure with importance**.
 
 Under standard replay strategies:
-- frequent samples dominate memory,
-- rare but critical events are overwritten,
-- long-term reliability degrades.
+- frequent samples dominate memory
+- rare but critical events are overwritten
+- long-term reliability degrades
 
 This is especially harmful in:
-- medical AI,
-- edge systems,
-- fraud detection,
-- safety-critical robotics.
+- medical AI
+- edge systems
+- fraud detection
+- safety-critical robotics
 
 MemorySafe reframes memory as a **resource allocation and lifecycle management problem**, explicitly separating:
 
@@ -49,49 +47,53 @@ MemorySafe reframes memory as a **resource allocation and lifecycle management p
 
 ## Core Concepts
 
-### 1. Memory Vulnerability Index (MVI)
+### Memory Vulnerability Index (MVI)
 MVI estimates how likely a memory is to be forgotten under future learning pressure.
 
 It captures:
-- interference from new tasks,
-- sensitivity to gradient updates,
-- temporal competition effects.
+- interference from new tasks
+- sensitivity to gradient updates
+- temporal competition effects
 
 MVI is:
-- predictive (not retrospective),
-- continuous and interpretable,
-- model-agnostic.
+- predictive (not retrospective)
+- continuous and interpretable
+- model-agnostic
 
-### 2. Memory Relevance (Value)
-Relevance estimates how valuable a memory is, independently of its vulnerability.
+---
+
+### Memory Relevance (Value)
+Relevance estimates how valuable a memory is independently of vulnerability.
 
 Guiding principles:
-- repetition ≠ importance,
-- rare but salient events retain value,
-- relevance decays over time.
+- repetition ≠ importance
+- rare but salient events retain value
+- relevance decays over time
 
-### 3. ProtectScore (Decision Signal)
+---
+
+### ProtectScore (Decision Signal)
 ProtectScore combines MVI and Relevance into a deterministic decision signal that governs:
-- protection,
-- consolidation,
-- eviction under fixed capacity.
+- protection
+- consolidation
+- eviction under fixed capacity
 
-This treats forgetting as an **active, functional choice**, not a system failure.
+This treats forgetting as an **active functional choice**, not a system failure.
 
 ---
 
 ## What MemorySafe Is (and Is Not)
 
 **MemorySafe is:**
-- a memory governance layer,
-- compatible with any learning algorithm,
-- model-agnostic and pluggable,
-- interpretable and low-overhead.
+- a memory governance layer
+- model-agnostic and pluggable
+- compatible with any learning algorithm
+- interpretable and low-overhead
 
 **MemorySafe is not:**
-- a replacement for training,
-- a full continual learning algorithm,
-- a benchmark-optimized model.
+- a training algorithm
+- a benchmark-optimized model
+- a replacement for continual learning methods
 
 It governs **memory decisions**, not learning dynamics.
 
@@ -101,18 +103,18 @@ It governs **memory decisions**, not learning dynamics.
 
 MemorySafe acts as a policy layer on top of replay buffers or memory modules.
 
-It maintains per-memory attributes:
-- task_id  
-- MVI  
-- relevance  
-- protect_score  
-- replay_count  
-- protected flag  
+Each memory maintains:
+- task_id
+- MVI
+- relevance
+- protect_score
+- replay_count
+- protected flag
 
-Guarantees:
-- no gradients inside memory logic,
-- no dataset-specific heuristics,
-- deterministic and auditable behavior.
+Design guarantees:
+- no gradients inside memory logic
+- no dataset-specific heuristics
+- deterministic and auditable behavior
 
 ---
 
@@ -120,65 +122,64 @@ Guarantees:
 
 The same unchanged MemorySafe policy was evaluated across heterogeneous continual learning benchmarks:
 
-- MNIST  
-- Fashion-MNIST  
-- CIFAR-10  
-- CIFAR-100  
-- Omniglot  
-- Permuted MNIST  
+- MNIST
+- Fashion-MNIST
+- CIFAR-10
+- CIFAR-100
+- Omniglot
+- Permuted MNIST
 - PneumoniaMNIST (medical imaging)
 
 Without dataset-specific tuning, MemorySafe demonstrated:
-- consistent Task-0 protection,
-- strong rare-event retention,
-- stability across increasing task difficulty.
+- consistent Task-0 protection
+- strong rare-event retention
+- stability across increasing task difficulty
 
-These results indicate **zero-shot generalization of a memory allocation policy**.
+These results suggest **zero-shot generalization of a memory allocation policy**.
 
 ---
 
 ## Use Cases
 
-- **Medical AI**  
-  Protection of rare pathologies and safety-critical cases.
+**Medical AI**  
+Protection of rare pathologies and safety-critical cases.
 
-- **Edge AI (Jetson / embedded)**  
-  Memory governance under tight RAM and compute budgets.
+**Edge AI (Jetson / embedded)**  
+Memory governance under tight RAM and compute budgets.
 
-- **Fraud Detection**  
-  Retention of delayed or rare anomalies.
+**Fraud Detection**  
+Retention of delayed or rare anomalies.
 
-- **Robotics**  
-  Preservation of critical failures and safety events.
+**Robotics**  
+Preservation of critical failures and safety events.
 
-- **Privacy-Aware AI**  
-  Predictive forgetting and sensitive data governance (MVI-P).
+**Privacy-Aware AI**  
+Predictive forgetting and sensitive data governance (MVI-P).
 
 ---
 
 ## Integration
 
-MemorySafe is compatible with:
+MemorySafe can integrate with:
 
-- Experience Replay  
-- GEM / A-GEM  
-- PackNet  
-- Progressive Neural Networks  
-- Custom replay buffers  
+- Experience Replay
+- GEM / A-GEM
+- PackNet
+- Progressive Neural Networks
+- Custom replay buffers
 
-It can be integrated as:
-- a replay gate,
-- an eviction governor,
-- a diagnostic layer for memory risk.
+Integration modes:
+- replay gate
+- eviction governor
+- diagnostic layer for memory risk
 
 ---
 
 ## Technology Stack
 
-- PyTorch  
-- CUDA / GPU accelerated training  
-- Designed for integration with modern ML pipelines  
-- Research prototype (Alpha)
+- PyTorch
+- CUDA / GPU acceleration
+- Continual learning research prototype (Alpha)
 
 ---
 
@@ -186,9 +187,8 @@ It can be integrated as:
 
 **MemorySafe treats AI memory as a governed resource, separating vulnerability from value to enable intentional, interpretable, and generalizable memory decisions under real-world constraints.**
 
+---
+
 ## License
 
-MemorySafe is released under the Apache 2.0 License.
-
-This allows free use, modification, and distribution, including for commercial purposes.
-For enterprise support, integrations, or commercial partnerships, contact MemorySafe Labs.
+Apache 2.0 License
