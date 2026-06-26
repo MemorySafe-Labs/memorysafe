@@ -1,24 +1,27 @@
-# MemorySafe
+# MemorySafe — Taste Demo v2
 
-MemorySafe is a vulnerability-aware memory governance framework for continual learning.
+Interactive Colab demo: **Reservoir vs MemorySafe** on a synthetic rare-class stream.
 
-## Install
-pip install memorysafe
+## What this shows
 
-## Quick example
-```python
-from memorysafe import MemorySafeBuffer
+- MVI-governed protect / replay / forget decisions
+- Rare positive recall when the buffer is full
+- Side-by-side comparison chart (~2 min on CPU)
 
+## What this is NOT
 
+- Not the v14.2 PneumoniaMNIST / PathMNIST benchmark
+- Not a production accuracy claim
 
-# MemorySafe – Taste Demo v2
+Canonical 10-seed results live on [memorysafe.ca](https://memorysafe.ca/#validation).
 
-This demo illustrates a memory governance system:
+## Run locally
 
-- Predicts forgetting risk (MVI)
-- Protects fragile but valuable memories
-- Actively forgets noisy or low-value ones
-- Prioritizes replay based on vulnerability
+```bash
+cd benchmarks/Taste_demo_v2
+python compare_demo.py --steps 1200 --capacity 500
+```
 
-This is not an accuracy benchmark.
-This is a behavioral demonstration of memory governance.
+## Colab
+
+Open `demo.ipynb` in Google Colab — **Runtime → Run all**.
