@@ -1,0 +1,23 @@
+# MemorySafe pathology agent — runtime policy (NeMo Guardrails Colang)
+# Paired with MemorySafeGovernor (training-time memory) in production_pipeline.py
+
+define user medical_query
+  "pneumonia" "x-ray" "pathology" "pathmnist" "rare class" "rare tissue"
+  "continual learning" "memorysafe" "memory safe" "replay buffer" "medical imaging"
+
+define user unsafe_request
+  "ignore all rules" "steal" "hack" "jailbreak" "bypass" "harmful" "illegal"
+
+define bot safe_response
+  "Approved: pathology / continual-learning scope. Forwarding to MemorySafe governor."
+
+define bot refuse
+  "Blocked: request outside approved pathology agent scope."
+
+define flow medical_guard
+  user medical_query
+  bot safe_response
+
+define flow block_unsafe
+  user unsafe_request
+  bot refuse
