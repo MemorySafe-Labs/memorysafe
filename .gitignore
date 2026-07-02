@@ -205,3 +205,13 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# MemorySafe v14 — local artifacts (canonical results checked in under runs/*/RESULTS.md)
+memorysafe_v14/data/
+memorysafe_v14/runs/**/benchmark_report.json
+!memorysafe_v14/runs/pneumonia_10seed_sota/benchmark_report.json
+!memorysafe_v14/runs/pathmnist_rare_10seed_sota/benchmark_report.json
+memorysafe_v14/_session_recovered/
+docs/partner-kits/output/
+*.docx
+~$*
