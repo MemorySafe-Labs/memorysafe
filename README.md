@@ -1,194 +1,99 @@
 # MemorySafe Labs
-**Memory Governance for Continual Learning Systems**
 
-MemorySafe is a memory governance framework for continual learning systems, designed to prevent safety-critical information from being forgotten under memory and compute constraints.
+**Replay governance for continual-learning PyTorch pipelines** — in-VPC hook, not SaaS.
 
-Rather than modifying how models learn, MemorySafe governs **what they retain**.
+MemorySafe governs what stays in a bounded replay buffer under rare-class pressure. It does not replace your training algorithm; it disciplines retention when memory is full.
 
-It operates as a policy-level decision layer for memory, acting as an intelligent governor that disciplines data retention independently of the learning algorithm.
-
-Use cases include medical AI, edge systems, fraud detection, robotics, and privacy-aware AI.
+**Site:** https://memorysafe.ca  
+**Contact:** carla@memorysafe.ca
 
 ---
 
-## 🚀 Try MemorySafe in 30 seconds
+## Try in 2 minutes (behavioral demo)
 
-Experience predictive memory governance in action.
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/MemorySafe-Labs/memorysafe/blob/main/benchmarks/Taste_demo_v2/demo.ipynb)
 
-The demo compares MemorySafe against FIFO, Reservoir, and Random Replay under memory pressure.
-
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)]
-(https://colab.research.google.com/github/MemorySafe-Labs/memorysafe/blob/main/benchmarks/Taste_demo_v2/demo.ipynb)
-
-No setup required. Just click **Run all**.
+Synthetic stream — shows governance dynamics. **Not** the v14.2 medical benchmark (see `memorysafe_v14/`).
 
 ---
 
-## Problem
+## v14.2 validation (honest claims)
 
-Modern continual learning systems implicitly conflate **exposure with importance**.
+Protocol: `v14.2-pneumonia-5task-sota` · 10 seeds · CPU · 500-sample buffer
 
-Under standard replay strategies:
-- frequent samples dominate memory
-- rare but critical events are overwritten
-- long-term reliability degrades
+| Benchmark | MemorySafe | Baseline | p-value |
+|-----------|------------|----------|---------|
+| PneumoniaMNIST 5-task (combined AUPRC) | **0.706 ± 0.051** | Reservoir 0.663 ± 0.066 | **0.017** |
+| PathMNIST rare-tissue (combined AUPRC) | **0.389 ± 0.121** | Reservoir 0.303 ± 0.128 | **0.028** |
+| PathMNIST task-0 retention | wins vs reservoir | — | **0.007** |
 
-This is especially harmful in:
-- medical AI
-- edge systems
-- fraud detection
-- safety-critical robotics
+**Lite SKU (80-cap):** 0.686 ± 0.056 (~58% less replay; −2 pp vs full, p=0.08 — not α-claimable).
 
-MemorySafe reframes memory as a **resource allocation and lifecycle management problem**, explicitly separating:
+**Do not claim:** universal CL SOTA (CIFAR-100 5-task is behind reservoir, p≈0.82).
 
-> **Risk ≠ Value ≠ Decision**
+Full spec: [`memorysafe_v14/v14_SPEC.md`](memorysafe_v14/v14_SPEC.md)
 
 ---
 
-## Core Concepts
+## Quick start — reproduce canonical benchmark
 
-### Memory Vulnerability Index (MVI)
-MVI estimates how likely a memory is to be forgotten under future learning pressure.
+```bash
+cd memorysafe_v14
+python3 -m venv .venv && source .venv/bin/activate
+pip install -r requirements.txt
 
-It captures:
-- interference from new tasks
-- sensitivity to gradient updates
-- temporal competition effects
+# Partner smoke (1 seed, ~15 min CPU)
+python run_eval_smoke.py
 
-MVI is:
-- predictive (not retrospective)
-- continuous and interpretable
-- model-agnostic
+# Full 10-seed reproduction
+python benchmark_pneumonia.py --seeds 10 --policies reservoir loss_priority memorysafe_v14 \
+  --save-dir runs/pneumonia_10seed_sota
+```
 
----
-
-### Memory Relevance (Value)
-Relevance estimates how valuable a memory is independently of vulnerability.
-
-Guiding principles:
-- repetition ≠ importance
-- rare but salient events retain value
-- relevance decays over time
+Pre-computed results: [`memorysafe_v14/runs/pneumonia_10seed_sota/RESULTS.md`](memorysafe_v14/runs/pneumonia_10seed_sota/RESULTS.md)
 
 ---
 
-### ProtectScore (Decision Signal)
-ProtectScore combines MVI and Relevance into a deterministic decision signal that governs:
-- protection
-- consolidation
-- eviction under fixed capacity
+## PyTorch integration (universal hook)
 
-This treats forgetting as an **active functional choice**, not a system failure.
+```python
+from governor import MemorySafeGovernor
 
----
+gov = MemorySafeGovernor.for_class_incremental(capacity=200, replay_prob=0.7)
+gov.set_task(task_id)
+bx, by, rep_idxs = gov.maybe_sample()
+# concat replay batch with current batch, train, then:
+gov.observe(x, y, value_scores, task_id=task_id, replay_idxs=rep_idxs, replay_losses=...)
+```
 
-## What MemorySafe Is (and Is Not)
-
-**MemorySafe is:**
-- a memory governance layer
-- model-agnostic and pluggable
-- compatible with any learning algorithm
-- interpretable and low-overhead
-
-**MemorySafe is not:**
-- a training algorithm
-- a benchmark-optimized model
-- a replacement for continual learning methods
-
-It governs **memory decisions**, not learning dynamics.
+Full example: [`memorysafe_v14/examples/pytorch_hook.py`](memorysafe_v14/examples/pytorch_hook.py)
 
 ---
 
-## Architecture
+## Repository layout
 
-MemorySafe acts as a policy layer on top of replay buffers or memory modules.
-
-Each memory maintains:
-- task_id
-- MVI
-- relevance
-- protect_score
-- replay_count
-- protected flag
-
-Design guarantees:
-- no gradients inside memory logic
-- no dataset-specific heuristics
-- deterministic and auditable behavior
+| Path | Description |
+|------|-------------|
+| `memorysafe_v14/` | v14.2 engine — governor, buffers, medical benchmarks |
+| `benchmarks/Taste_demo_v2/` | Colab behavioral demo |
+| `docs/partner-kits/` | Post-NDA partner guides (technical eval + commercial GTM) |
 
 ---
 
-## Generalization & Validation
+## What MemorySafe is (and is not)
 
-The same unchanged MemorySafe policy was evaluated across heterogeneous continual learning benchmarks:
+**Is:**
+- PyTorch replay-governance hook (`MemorySafeGovernor` / `GovernedBuffer`)
+- MVI + ProtectScore + quota policies
+- In-VPC evaluation kit
 
-- MNIST
-- Fashion-MNIST
-- CIFAR-10
-- CIFAR-100
-- Omniglot
-- Permuted MNIST
-- PneumoniaMNIST (medical imaging)
-
-Without dataset-specific tuning, MemorySafe demonstrated:
-- consistent Task-0 protection
-- strong rare-event retention
-- stability across increasing task difficulty
-
-These results suggest **zero-shot generalization of a memory allocation policy**.
-
----
-
-## Use Cases
-
-**Medical AI**  
-Protection of rare pathologies and safety-critical cases.
-
-**Edge AI (Jetson / embedded)**  
-Memory governance under tight RAM and compute budgets.
-
-**Fraud Detection**  
-Retention of delayed or rare anomalies.
-
-**Robotics**  
-Preservation of critical failures and safety events.
-
-**Privacy-Aware AI**  
-Predictive forgetting and sensitive data governance (MVI-P).
-
----
-
-## Integration
-
-MemorySafe can integrate with:
-
-- Experience Replay
-- GEM / A-GEM
-- PackNet
-- Progressive Neural Networks
-- Custom replay buffers
-
-Integration modes:
-- replay gate
-- eviction governor
-- diagnostic layer for memory risk
-
----
-
-## Technology Stack
-
-- PyTorch
-- CUDA / GPU acceleration
-- Continual learning research prototype (Alpha)
-
----
-
-## One-Sentence Essence
-
-**MemorySafe treats AI memory as a governed resource, separating vulnerability from value to enable intentional, interpretable, and generalizable memory decisions under real-world constraints.**
+**Is not:**
+- Hosted SaaS platform
+- Universal continual-learning SOTA on every dataset
+- A replacement for your CL algorithm
 
 ---
 
 ## License
 
-Apache 2.0 License
+Apache 2.0 — see [LICENSE](LICENSE).
