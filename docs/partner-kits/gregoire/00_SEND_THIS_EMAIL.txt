@@ -1,0 +1,25 @@
+Subject: MemorySafe — commercial partner kit (post-NDA)
+
+Hi Grégoire,
+
+Thanks for signing the NDA. Attached is your commercial partner kit — everything you need to start positioning and selling MemorySafe.
+
+**Start here:**
+1. Read `01_README_GTM.md` (10 min) — what we sell, what we don't
+2. Read `02_SAFE_CLAIMS.md` — memorize the honest metrics
+3. Use `04_OUTREACH_TEMPLATES.md` for first conversations
+4. `05_PHASE1_PARTNER_SCOPE.md` — what's in scope for Phase 1 (personal capacity)
+
+**Links to share:**
+- Site: https://memorysafe.ca
+- Validation: https://memorysafe.ca/#validation
+- Colab demo: https://colab.research.google.com/github/MemorySafe-Labs/memorysafe/blob/main/benchmarks/Taste_demo_v2/demo.ipynb
+
+**Motion:** 15 min discovery → free 2-week in-VPC eval → $25–40k 90-day pilot → annual SDK.
+
+Phase 1 ask: one qualified intro to a medical-imaging CL team (pathology or radiology) after you've read the kit. Hilo stays out until we have a signed corporate agreement.
+
+Let's do a 30-min alignment call this week — I'll walk you through the one-pager and objection handling.
+
+Carla
+carla@memorysafe.ca
