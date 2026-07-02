@@ -1,91 +1,87 @@
 # MemorySafe — Commercial Partner Kit (Grégoire)
 
-**Version:** v14.2 · July 2026  
-**Your role:** Prospective Commercial Partner (personal capacity)  
-**Goal:** Start selling MemorySafe to qualified medical-imaging / CL teams.
+**July 2026 · v14.2 · Personal capacity**
 
 ---
 
-## One-liner
+## Sell this sentence first
 
-> When replay memory is full, rare cases get dropped. MemorySafe governs what stays — a PyTorch hook, in-VPC, no SaaS.
+> **"Cut replay memory up to 84% without throwing away the cases that matter."**
 
----
-
-## What you are selling
-
-| Layer | Deliverable |
-|-------|-------------|
-| **Eval** | 2-week in-VPC A/B: their replay vs MemorySafe on one stream |
-| **Pilot** | 90-day paid integration ($25k–40k) |
-| **Annual** | SDK license ($50k–120k/yr) after pilot success |
-
-**SKU:** PyTorch replay-governance hook — not a platform, not universal CL SOTA.
+Buyers move when something hits **cost, capacity, or risk**. Lead there. The science is backup.
 
 ---
 
-## Ideal customer profile (ICP)
+## The story (30 seconds)
+
+Hospitals and imaging AI teams retrain on new data all the time. Replay buffers eat GPU RAM. Bigger buffer = bigger bill. Smaller buffer = rare cases vanish.
+
+MemorySafe is a **PyTorch hook** that governs what stays in the buffer — so teams can run **Lite mode (80-cap, ~84% smaller footprint)** and still protect rare, high-impact classes. In-VPC. No SaaS. No rip-and-replace.
+
+**Proof today:** public v14.2 benchmarks on memorysafe.ca — Lite **0.686** combined AUPRC vs Performance **0.706** on the same protocol (PneumoniaMNIST 5-task, 10 seeds).
+
+---
+
+## Two buyers, two doors
+
+| Buyer | Pain | Your opener |
+|-------|------|-------------|
+| **VP Eng / Infra** | GPU $, memory ceiling, edge deploy | "84% smaller replay footprint — more headroom on the same box." |
+| **ML lead / Product** | Rare class drift, audit anxiety | "Governed retention — you choose what survives when memory is tight." |
+
+Same product. Different receipt.
+
+---
+
+## SKUs you quote
+
+| Profile | Buffer | When to pitch |
+|---------|--------|---------------|
+| **Performance** | 500-cap | "Max retention — benchmark-winning lane" |
+| **Lite** | 80-cap | **Default pitch** — edge, cost-sensitive, multi-tenant GPU |
+
+---
+
+## Motion (simple)
+
+```
+Hook (84% memory) → 15 min discovery → free 2-week in-VPC eval → pilot → SDK
+```
+
+**Eval promise:** A/B on *their* stream — MemorySafe Lite vs their replay at **matched or reduced** buffer budget. Report: memory MB, rare-class metric, recommendation.
+
+**Do not promise:** production accuracy on their data until eval runs.
+
+---
+
+## ICP (who pays)
 
 - Medical imaging AI (pathology, radiology, ophthalmology)
-- Runs continual learning or frequent retraining on **fixed GPU/buffer budget**
-- Pain: rare classes / early tasks forgotten after new data arrives
-- Stack: PyTorch, can grant VPC or sandbox access
-- Buyer: ML lead, VP Eng, or product + ML pair
+- Continual learning or frequent retraining
+- **Fixed GPU budget** or edge deployment pressure
+- PyTorch, can do in-VPC eval
 
-**Best first targets:** Digital pathology (Aiforia-class), radiology workflow AI (contextflow-class).
-
----
-
-## Sales motion (do not skip steps)
-
-```
-15 min discovery
-    ↓
-Free 2-week eval (in-VPC, one stream, agreed metric)
-    ↓
-Readout: Δ AUPRC or Δ rare recall at matched buffer cap
-    ↓
-90-day paid pilot ($25k–40k) — only if eval shows signal
-    ↓
-Annual SDK
-```
-
-**Never promise:** production accuracy, universal SOTA, hosted SaaS, or results without their data.
+**First targets:** digital pathology · radiology workflow AI · any team complaining about **GPU cost + model updates**.
 
 ---
 
-## Phase 1 partner scope
+## Phase 1 (you)
 
-See `05_PHASE1_PARTNER_SCOPE.md`:
-- Personal capacity only (Hilo not a Party)
-- One warm intro after kit review + alignment call
-- Referral economics discussed in MOU (not in this kit)
+1. Read kit + alignment call with Carla
+2. One warm intro (qualified)
+3. Co-run discovery — you open with **money**, Carla closes with **eval**
 
----
-
-## Files in this package
-
-| File | Purpose |
-|------|---------|
-| `02_SAFE_CLAIMS.md` | Metrics you CAN cite |
-| `03_PRICING_AND_PILOT.md` | Eval / pilot / SDK pricing + deliverables |
-| `04_OUTREACH_TEMPLATES.md` | Copy-paste email + LinkedIn |
-| `05_PHASE1_PARTNER_SCOPE.md` | Your deliverables + boundaries |
-| `assets/MemorySafe_Sales_OnePager.docx` | Leave-behind for prospects |
-| `assets/PILOT_OUTREACH_READY.txt` | Aiforia-first outreach (reference) |
+Details: `05_PHASE1_PARTNER_SCOPE.md`
 
 ---
 
-## Objection handling (quick)
+## Kit map
 
-| Objection | Response |
-|-----------|----------|
-| "Is this SOTA?" | "Governed replay under rare-class pressure — we win on medical lanes we benchmarked; CIFAR we don't claim." |
-| "Send me a paper" | "10-seed JSON + site validation. Happy to run 2-week eval on your stream." |
-| "We use SaaS" | "We're in-VPC hook only — fits regulated imaging." |
-| "Too early" | "Pre-revenue, honest. 15 min feedback helps us both." |
-| "What's the price?" | "Eval free; pilot $25–40k after signal; SDK annual after that." |
+| File | Use |
+|------|-----|
+| `02_PITCH_AND_PROOF.md` | Lines that are safe to say |
+| `03_PRICING_AND_PILOT.md` | Eval → pilot → SDK + ROI framing |
+| `04_OUTREACH_TEMPLATES.md` | Emails / LinkedIn |
+| `06_ROI_TALK_TRACK.md` | Call scripts |
 
----
-
-Questions: carla@memorysafe.ca · https://memorysafe.ca
+carla@memorysafe.ca · https://memorysafe.ca

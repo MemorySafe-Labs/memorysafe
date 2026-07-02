@@ -1,25 +1,22 @@
-Subject: MemorySafe — commercial partner kit (post-NDA)
+Subject: MemorySafe partner kit — sell the 84% memory win
 
 Hi Grégoire,
 
-Thanks for signing the NDA. Attached is your commercial partner kit — everything you need to start positioning and selling MemorySafe.
+NDA signed — here's your commercial kit. One idea to anchor every conversation:
 
-**Start here:**
-1. Read `01_README_GTM.md` (10 min) — what we sell, what we don't
-2. Read `02_SAFE_CLAIMS.md` — memorize the honest metrics
-3. Use `04_OUTREACH_TEMPLATES.md` for first conversations
-4. `05_PHASE1_PARTNER_SCOPE.md` — what's in scope for Phase 1 (personal capacity)
+**MemorySafe Lite keeps rare cases in replay with an 84% smaller buffer footprint** (80 vs 500 samples on our public medical benchmark). Same problem buyers already pay for — GPU $$$ and retrain pain — but now you can quantify it.
 
-**Links to share:**
-- Site: https://memorysafe.ca
-- Validation: https://memorysafe.ca/#validation
-- Colab demo: https://colab.research.google.com/github/MemorySafe-Labs/memorysafe/blob/main/benchmarks/Taste_demo_v2/demo.ipynb
+**Read in this order (20 min):**
+1. `01_README_GTM.md` — how to sell (money first, not math first)
+2. `02_PITCH_AND_PROOF.md` — what you can say today (v14.2 only)
+3. `04_OUTREACH_TEMPLATES.md` — copy-paste openers
+4. `06_ROI_TALK_TRACK.md` — CFO + ML lead scripts
 
-**Motion:** 15 min discovery → free 2-week in-VPC eval → $25–40k 90-day pilot → annual SDK.
+**Share:** https://memorysafe.ca · https://github.com/MemorySafe-Labs/memorysafe
 
-Phase 1 ask: one qualified intro to a medical-imaging CL team (pathology or radiology) after you've read the kit. Hilo stays out until we have a signed corporate agreement.
+**Motion:** 15 min discovery → free 2-week in-VPC eval → pilot → annual SDK.
 
-Let's do a 30-min alignment call this week — I'll walk you through the one-pager and objection handling.
+Phase 1: one qualified intro after we do a 30-min alignment call. Personal capacity only — Hilo comes later.
 
 Carla
 carla@memorysafe.ca
