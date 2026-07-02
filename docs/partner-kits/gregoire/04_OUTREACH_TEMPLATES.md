@@ -1,64 +1,83 @@
-# Outreach Templates — Copy-Paste
+# Outreach Templates — Money First
 
-**Before sending:** Read `02_SAFE_CLAIMS.md`. Pre-revenue, honest tone. No spray-and-pray.
+**Tone:** Direct, curious, no jargon dump. Lead with **84% memory** or **GPU bill**.
 
 ---
 
-## LinkedIn — pathology (Aiforia-class)
+## LinkedIn — infra / VP Eng angle
 
 ```
-Hi [Name] — I'm Carla, founder of MemorySafe Labs (Montreal, NVIDIA Inception). Pre-revenue, still validating fit.
+Hi [Name] — quick one from Montreal.
 
-Small PyTorch hook for continual learning — protect rare pathology classes when replay memory is tight. PathMNIST (10-seed): beat reservoir on rare-tissue AUPRC (p=0.028). May not apply to your stack.
+We help continual-learning teams shrink replay buffers ~84% (Lite profile) without dumping rare cases — PyTorch hook, in-VPC.
 
-Open to 15 min of honest feedback? No pressure.
+Public v14.2 benchmark: near-full retention at 1/6th the replay memory on medical imaging data.
+
+Worth 15 min if GPU cost or buffer size is on your roadmap?
 
 memorysafe.ca
 ```
 
 ---
 
-## Email — pathology team
-
-**Subject:** Early-stage startup — rare-class retention in pathology CL?
+## LinkedIn — pathology / product angle
 
 ```
-Hi [Name] / team,
+Hi [Name] — Carla, MemorySafe Labs (Montreal).
 
-I'm Carla Centeno, founder of MemorySafe Labs — early-stage, Montreal (NVIDIA Inception, Google for Startups). Pre-revenue.
+Digital pathology CL teams often face two pains: rare tissue classes disappearing from replay, and GPU memory limits on retrain.
 
-We built a lightweight PyTorch hook for continual-learning pipelines: when replay buffers are full, rare tissue classes often get dropped — we try to protect what's vulnerable, not just what's frequent.
+We govern what stays in the buffer — Lite mode uses ~84% less replay footprint than our Performance profile, with close retention on public benchmarks.
 
-On public pathology benchmarks only (10-seed CPU, JSON available):
-- PathMNIST rare-tissue: 0.389 vs 0.303 combined AUPRC vs reservoir (p=0.028)
-- PneumoniaMNIST (supporting): 0.706 vs 0.663 (p=0.017)
+Open to a short call to see if a 2-week in-VPC eval is worth it?
 
-Not a production claim — looking for a first conversation with a pathology team who can tell us if this matters. Integration is in-VPC only, no SaaS.
+memorysafe.ca
+```
 
-Open to 15 minutes, or a pointer to the right person? Even "not now" helps.
+---
 
-Thank you,
-Carla Centeno
+## Email — subject lines that work
+
+- `Cut replay memory ~84%? (PyTorch hook, in-VPC)`
+- `GPU headroom for your CL pipeline`
+- `Rare cases + smaller replay buffer — 15 min?`
+
+---
+
+## Email — full (copy-paste)
+
+**Subject:** Cut replay memory ~84% on your CL pipeline?
+
+```
+Hi [Name],
+
+I'm Carla Centeno — MemorySafe Labs, Montreal. We built a PyTorch hook that governs replay-buffer retention for continual-learning vision models.
+
+The practical pitch: **MemorySafe Lite runs with ~84% smaller replay footprint** (80 vs 500 sample cap on our public medical benchmark) while staying close to full-buffer retention (0.686 vs 0.706 combined AUPRC, v14.2, 10 seeds).
+
+Why teams care:
+- GPU / memory headroom on the same hardware
+- Rare, high-impact cases protected when buffer is tight
+- In-VPC only — no SaaS, no rip-and-replace
+
+Happy to do 15 minutes, or point me to whoever owns retrain infra. If it's not a fit, a quick "not now" is perfect.
+
 carla@memorysafe.ca
 https://memorysafe.ca
 ```
 
 ---
 
-## Email — radiology / general medical CL
-
-**Subject:** Replay governance for rare-class retention in medical CL?
+## After they bite — eval offer
 
 ```
-Hi [Name],
+Great speaking today. Proposed next step — free 2-week in-VPC eval:
 
-I'm Carla Centeno (MemorySafe Labs, Montreal). We govern replay-buffer retention for continual-learning vision models — protecting rare, high-impact cases when GPU memory is fixed.
+• Integrate MemorySafe Lite on one update stream
+• Compare vs your current replay at reduced buffer budget
+• Deliverable: MB saved + rare-class metric + go/no-go
 
-On public medical benchmarks (10-seed CPU): PneumoniaMNIST class-IL 0.706 vs 0.663 combined AUPRC (p=0.017); pathology rare-tissue lane p=0.028 vs reservoir.
-
-Integration is a PyTorch training hook (in-VPC, no SaaS). Worth 15 minutes to see if a 2-week eval on one update stream is useful for your roadmap?
-
-carla@memorysafe.ca · https://memorysafe.ca
+No pilot commitment unless the numbers work on your data.
 ```
 
 ---
@@ -66,29 +85,14 @@ carla@memorysafe.ca · https://memorysafe.ca
 ## Follow-up (Day 7)
 
 ```
-Hi — just bumping this gently in case it got buried. Still early-stage on our side, but happy to share benchmark JSON or jump on a short call if useful. Totally fine if timing isn't right — thank you either way.
+Hi — gentle bump. Still happy to show the Lite vs Performance memory story (84% smaller replay footprint on our public benchmark) or run a short eval on your stream. No worries if timing's off.
 ```
 
 ---
 
-## After discovery — eval offer
+## Targets (one at a time)
 
-```
-Thanks for the call. As discussed, we'd propose a free 2-week in-VPC eval:
+1. **Aiforia** — pathology · Gary Chisholm · contact@aiforia.com  
+2. **contextflow** — radiology · contextflow.com/contact  
 
-- One retrain/CL stream
-- A/B: your replay vs MemorySafe at matched buffer cap
-- Readout: Δ AUPRC or Δ rare-class recall + audit logs
-- No obligation to pilot
-
-If useful, I can send a one-pager and JSON from our public benchmarks. When works for a quick scoping call with your ML lead?
-```
-
----
-
-## Priority targets (Phase 1)
-
-1. **Aiforia** — digital pathology, Gary Chisholm (Americas), contact@aiforia.com
-2. **contextflow** — radiology workflow, via contextflow.com/contact
-
-One intro at a time. Log send date; follow up Day 7.
+Log send date. Follow up Day 7.

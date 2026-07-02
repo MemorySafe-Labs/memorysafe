@@ -1,78 +1,73 @@
-# Pricing & Pilot Motion
+# Pricing, Pilot & ROI Frame
 
 ---
 
-## Tier 0 — Discovery (free)
+## Price the problem before the product
 
-- **15 minutes** — qualify ICP, explain hook, share safe claims
-- **Output:** Go / no-go for eval
+Ask on discovery:
+1. What does a **GPU hour** cost you all-in? (cloud or amortized on-prem)
+2. How big is your **replay buffer** today (samples / MB)?
+3. What happens when you **halve** buffer size today? (rare class drop? retrain churn?)
+
+If they feel #3, they'll fund an eval.
 
 ---
 
-## Tier 1 — 2-week technical eval (free first engagement)
+## Commercial ladder
+
+| Stage | Price | Buyer gets |
+|-------|-------|------------|
+| **Discovery** | Free | 15 min — qualify memory pain |
+| **2-week eval** | Free (first) | A/B: their replay vs MemorySafe **Lite** on one stream |
+| **90-day pilot** | **$25k–$40k** | Production-adjacent integration + monitoring |
+| **Annual SDK** | **$50k–$120k/yr** | Lite or Performance profile + support hours |
+
+Pilot only after eval shows signal on **their** metric.
+
+---
+
+## Eval design (sell this)
+
+**Question we answer:**  
+*"Can MemorySafe Lite hit our rare-class target with ≤20% of our current replay memory?"*
 
 **Deliverables:**
-1. `MemorySafeGovernor` integrated into one CL/retrain stream
-2. A/B vs their current replay (or reservoir baseline) on **agreed metric**
-3. Short report: Δ AUPRC or Δ rare-class recall, buffer stats, audit logs
-4. Recommendation: pilot or stop
+1. Hook in their PyTorch loop
+2. A/B at reduced buffer cap
+3. Report: **MB saved**, Δ rare metric, audit log sample
+4. Go / no-go recommendation
 
-**Timeline:** 10 business days after VPC/sandbox access agreed
-
-**What we need from customer:**
-- One PyTorch training pipeline (or proxy benchmark first)
-- Agreed rare-class metric
-- In-VPC or sandbox access
-
-**Price:** Free for first engagement. If they insist on paid eval: **$5k** (your discretion).
+**Timeline:** 10 business days after VPC access
 
 ---
 
-## Tier 2 — 90-day paid pilot
+## ROI talk (illustrative — adapt on the call)
 
-**Price:** **$25,000 – $40,000** (scope-dependent)
+Use their numbers when you have them. Otherwise:
 
-**Scope:**
-- Production-adjacent integration on 1–2 streams
-- Monitoring + audit JSON in their pipeline
-- Success criteria defined upfront (falsifiable)
+> "If replay is even **500 MB–2 GB** of your training footprint, an **84% cut** frees headroom — smaller instance, second model on the same card, or edge deploy without a new hardware line item."
 
-**Only discuss after eval shows signal.**
+> "Lite is **0.686 vs 0.706** on our public medical benchmark — you're not trading 84% memory for zero quality; you're trading for *governed* quality."
 
----
+**CFO line:**  
+*"This is a memory-efficiency lever on infrastructure you already pay for."*
 
-## Tier 3 — Annual SDK license
-
-**Price:** **$50,000 – $120,000 / year**
-
-**Includes:**
-- Governor + buffer policies (Lite or Performance profile)
-- Integration support hours (negotiated)
-- Benchmark harness for regression checks
+**ML line:**  
+*"Governed retention so the buffer shrink doesn't eat your rare positives."*
 
 ---
 
-## Partner economics (Phase 1 — MOU, not this doc)
+## Eval success criteria (put in writing)
 
-Discussed separately with Grégoire after first intro meeting:
-- Referral commission on closed pilot: **10–15%** (typical range discussed)
-- No Hilo co-brand until corporate agreement
-
----
-
-## Eval success criteria (put in every proposal)
-
-| Item | Example |
-|------|---------|
-| Primary metric | Δ combined AUPRC ≥ 0.03 at matched 500-cap buffer |
-| Secondary | Δ rare-class recall or task-0 retention |
-| Guardrail | No regression > 5% on majority class |
-| Decision date | Day 10 readout call |
+| Metric | Example target |
+|--------|----------------|
+| Memory | ≥ **70%** replay footprint reduction vs baseline |
+| Quality | No worse than agreed Δ on rare-class recall / AUPRC |
+| Ops | Hook integrated without forking their trainer |
 
 ---
 
-## What NOT to discount
+## Partner economics (MOU — not binding here)
 
-- In-VPC-only deployment (non-negotiable for v1)
-- Falsifiable metric agreement before eval starts
-- No production claims without their data
+Referral on closed pilot: **10–15%** range discussed with Carla.  
+Hilo corporate channel: separate agreement.

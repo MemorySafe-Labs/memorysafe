@@ -2,63 +2,43 @@
 
 ---
 
-## What Phase 1 is
+## Your pitch angle (non-negotiable)
 
-Personal-capacity commercial partnership exploration:
-- Position MemorySafe to qualified prospects
-- Generate **one warm intro** to a medical-imaging CL team
-- Co-run discovery → eval motion with Carla
-
-**What Phase 1 is not:**
-- Hilo Technologies Inc. as channel partner (deferred)
-- Exclusive territory or co-brand
-- Binding commission/equity (that's the MOU, after traction)
+Lead with **84% replay memory reduction (Lite)** and **GPU / infra savings**.  
+Clinical proof is layer two — see `02_PITCH_AND_PROOF.md`.
 
 ---
 
-## Your deliverables (Phase 1)
+## Deliverables
 
-| # | Deliverable | Timeline |
-|---|-------------|----------|
-| 1 | Read partner kit + alignment call with Carla | Week 1 |
-| 2 | Identify 3–5 qualified prospects (names + why) | Week 1–2 |
-| 3 | **One warm intro** (email or LinkedIn, Carla on thread) | Week 2–4 |
-| 4 | Join discovery call if prospect bites | As needed |
-| 5 | Debrief: fit / objection / next step | After each call |
-
----
-
-## Carla's deliverables
-
-- Sales one-pager + site + JSON evidence
-- Join all discovery and eval scoping calls
-- Run technical eval (Maher track) or deliver eval kit to customer
-- Draft MOU with economics after first qualified meeting
+| # | What | When |
+|---|------|------|
+| 1 | Read kit + alignment call | Week 1 |
+| 2 | 3–5 prospects with **memory or GPU pain** noted | Week 1–2 |
+| 3 | **One warm intro** (you on thread) | Week 2–4 |
+| 4 | Join discovery — open with money, Carla scopes eval | As needed |
 
 ---
 
-## Qualification checklist (intro only if ≥4 yes)
+## Qualify hard (≥4 yes)
 
 - [ ] Medical imaging or regulated vision AI
-- [ ] Continual learning or frequent retraining on fixed buffer
-- [ ] Rare-class or early-task forgetting is a known pain
-- [ ] PyTorch stack, can do in-VPC eval
-- [ ] ML decision-maker reachable within 2 hops
-
----
-
-## Economics (preview — finalize in MOU)
-
-Discussed range, not binding in Phase 1:
-- **Referral on closed 90-day pilot:** 10–15% of pilot fee
-- **No equity** in Phase 1 unless separately agreed
-- **Hilo corporate channel:** separate agreement required
+- [ ] Retraining / continual learning on **fixed GPU budget**
+- [ ] Complains about buffer size, cloud bill, or edge deploy
+- [ ] PyTorch, in-VPC eval possible
+- [ ] Decision-maker within 2 hops
 
 ---
 
 ## Boundaries
 
-- Do not represent MemorySafe as Hilo-affiliated
-- Do not promise production results or universal SOTA
-- Do not share MemorySafe source with prospects before Carla approves eval scope
-- Escalate pricing / pilot terms to Carla — use `03_PRICING_AND_PILOT.md` as guardrails
+- Personal capacity — Hilo not a Party until corporate deal
+- No production promises before eval
+- Pricing / pilot terms → Carla (`03_PRICING_AND_PILOT.md`)
+- Only **v14.2** numbers from memorysafe.ca
+
+---
+
+## Economics preview (MOU later)
+
+Referral **10–15%** on closed pilot — finalize with Carla after first meeting.
