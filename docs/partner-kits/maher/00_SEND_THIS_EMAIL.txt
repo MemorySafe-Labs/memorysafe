@@ -1,0 +1,26 @@
+Subject: MemorySafe — technical eval package (post-NDA)
+
+Hi Maher,
+
+Thanks for signing the NDA. Attached is your technical eval package.
+
+Suggested path (pick your pace):
+
+1. Colab behavioral demo (~2 min, CPU) — see README, Step 1
+2. 1-seed smoke repro on your machine (~15–30 min) — Step 2
+3. Review pytorch_hook.py integration sketch — Step 3
+4. Optional: 10-seed full repro or architecture call with me
+
+What I'm asking from you:
+- Does the governor hook fit a real PyTorch CL loop?
+- Are the benchmark claims reproducible on your box?
+- What's missing before we'd trust this on customer-grade data?
+
+Repo path on my side: ~/Desktop/MemorySafe/memorysafe_v14
+Colab: https://colab.research.google.com/github/MemorySafe-Labs/memorysafe/blob/main/benchmarks/Taste_demo_v2/demo.ipynb
+Site + validation: https://memorysafe.ca/#validation
+
+Happy to do a 45-min technical walkthrough once you've run Step 1 or 2.
+
+Carla
+carla@memorysafe.ca
