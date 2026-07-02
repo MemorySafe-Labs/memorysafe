@@ -1,1 +1,19 @@
-PLACEHOLDER
+{
+  "report": {
+    "config": {
+      "dataset": "pathmnist_rare",
+      "n_seeds": 10,
+      "buffer_capacity": 500,
+      "pos_quota_frac": 0.4,
+      "replay_pos_frac": 0.45
+    },
+    "aggregates": {
+      "memorysafe_v14": {
+        "combined_auprc": {
+          "mean": 0.0,
+          "std": 0.0
+        }
+      }
+    }
+  }
+}
